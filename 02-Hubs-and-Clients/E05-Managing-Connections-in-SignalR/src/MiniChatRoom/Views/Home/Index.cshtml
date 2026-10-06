@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="css/style.css" rel="stylesheet"/>
+
+<div class="row p-2 messages">
+    <div class="row p-3">
+        <p>
+            <span>شناسه اتصال من:</span> <span id="connection-id"></span>
+            <button onclick="getConnectionId()">نمایش شناسه اتصال</button>
+        </p>
+        <input class="form-control my-2" placeholder="نام خود را وارد کنید." id="username-input"/>
+        <input class="form-control my-2" placeholder="پیام خود را وارد کنید." id="message-input"/>
+        <button id="send-btn" onclick="sendMessage()" class="btn-send">ارسال</button>
+        <button class="btn-send" onclick="sendMessageToOthers()">ارسال پیام به Others</button>
+    </div>
+    <ul id="message-container">
+        <p>پیام ها:</p>
+    </ul>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/site.js"></script>
+}
