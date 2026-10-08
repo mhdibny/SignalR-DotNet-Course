@@ -6,7 +6,7 @@ namespace MiniChatRoom.Hubs
     {
         private readonly Guid _instanceId = Guid.NewGuid();
 
-        private async Task TestHubInstance()
+        public async Task TestHubInstance()
         {
             await Clients.Caller.SendAsync("ReceivedHubInstanceId", _instanceId);
         }
