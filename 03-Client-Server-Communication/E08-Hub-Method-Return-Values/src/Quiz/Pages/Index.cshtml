@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link rel="stylesheet" href="~/css/style.css"/>
+<div class="quiz-container">
+    <h1>Quiz</h1>
+
+    <p id="connection-status">
+        در حال اتصال به Server...
+    </p>
+
+    <h2>سؤال اول</h2>
+
+    <p>
+        کدام گزینه برای پیاده‌سازی ارتباط Real-Time
+        در ASP.NET Core استفاده می‌شود؟
+    </p>
+
+    <div>
+        <label>
+            <input type="radio" name="answer" value="mvc" />
+            ASP.NET Core MVC
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <input type="radio" name="answer" value="signalr" />
+            SignalR
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <input type="radio" name="answer" value="efcore" />
+            Entity Framework Core
+        </label>
+    </div>
+
+    <button id="check-answer"  type="button" disabled>
+        بررسی پاسخ
+    </button>
+
+    <p id="result" role="status"></p>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/quiz.js"></script>
+}
