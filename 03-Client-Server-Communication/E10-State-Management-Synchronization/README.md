@@ -1,6 +1,6 @@
-\## 🗂️ نحوه ذخیره‌سازی داده‌ها در برنامه‌های مختلف
+## 🗂️ نحوه ذخیره‌سازی داده‌ها در برنامه‌های مختلف
 
 
 
-!\[Data Storage Patterns](./images/data-storage-patterns.png)
+![Data Storage Patterns](./images/data-storage-patterns.png)
 
