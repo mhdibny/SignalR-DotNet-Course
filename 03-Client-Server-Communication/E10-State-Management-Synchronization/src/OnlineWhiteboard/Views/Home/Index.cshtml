@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/css/style.css"/>
+<div class="whiteboard-container">
+    <h1>Online Whiteboard</h1>
+
+    <p id="connectionStatus">در حال اتصال به سرور...</p>
+
+    <div class="whiteboard-toolbar">
+        <label for="colorPicker">رنگ قلم:</label>
+        <input type="color" id="colorPicker" value="#000000" />
+
+        <label for="lineWidth">ضخامت قلم:</label>
+        <input type="range"
+               id="lineWidth"
+               min="1"
+               max="12"
+               value="3" />
+    </div>
+
+    <canvas id="whiteboard"
+            width="900"
+            height="500"
+            class="whiteboard-canvas">
+    </canvas>
+</div>
+
+@section Scripts {
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/whiteboard.js"></script>
+}

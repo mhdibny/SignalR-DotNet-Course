@@ -1,0 +1,262 @@
+﻿@font-face {
+    font-family: 'Vazirmatn';
+    src: url('/font/vazirmatn/Vazirmatn-Regular.woff2') format('woff2'), url('/font/vazirmatn/Vazirmatn-Regular.woff') format('woff'), url('/font/vazirmatn/Vazirmatn-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Vazirmatn', 'Shabnam', Tahoma, sans-serif;
+    direction: rtl;
+    color: #1E293B;
+    background: linear-gradient(160deg, #EEF2FF 0%, #F5F3FF 45%, #FDF2F8 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    width: 100%;
+}
+
+.navbar,
+.footer {
+    display: none !important;
+}
+
+.whiteboard-container {
+    width: 100%;
+    max-width: 980px;
+    padding: 36px 36px 28px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 20px 50px -20px rgba(99, 102, 241, 0.25);
+    animation: cardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+    .whiteboard-container h1 {
+        margin: 0 0 6px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+        color: #4F46E5;
+    }
+
+#connectionStatus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 28px;
+    padding: 6px 16px;
+    width: fit-content;
+    background: #FEF3C7;
+    border-radius: 999px;
+    color: #92400E;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+    #connectionStatus::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #F59E0B;
+        transition: background 0.5s ease;
+    }
+
+.whiteboard-container:has(#connectionStatus:not(:empty)) #connectionStatus {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+    .whiteboard-container:has(#connectionStatus:not(:empty)) #connectionStatus::before {
+        background: #10B981;
+    }
+
+.whiteboard-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: #F8FAFC;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 16px;
+}
+
+    .whiteboard-toolbar label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #475569;
+    }
+
+    .whiteboard-toolbar input[type="color"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 46px;
+        height: 40px;
+        padding: 0;
+        border: 2px solid #E2E8F0;
+        border-radius: 10px;
+        background: #FFFFFF;
+        cursor: pointer;
+        overflow: hidden;
+        transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .whiteboard-toolbar input[type="color"]:hover {
+            border-color: #C7D2FE;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px -4px rgba(99, 102, 241, 0.35);
+        }
+
+        .whiteboard-toolbar input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 3px;
+        }
+
+        .whiteboard-toolbar input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 6px;
+        }
+
+        .whiteboard-toolbar input[type="color"]::-moz-color-swatch {
+            border: none;
+            border-radius: 6px;
+        }
+
+    .whiteboard-toolbar input[type="range"] {
+        appearance: none;
+        -webkit-appearance: none;
+        flex: 1;
+        min-width: 180px;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #6366F1 0%, #C7D2FE 100%);
+        outline: none;
+        cursor: pointer;
+    }
+
+        .whiteboard-toolbar input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #FFFFFF;
+            border-radius: 50%;
+            background: #6366F1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px -2px rgba(99, 102, 241, 0.7);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+            .whiteboard-toolbar input[type="range"]::-webkit-slider-thumb:hover {
+                transform: scale(1.15);
+                box-shadow: 0 4px 14px -2px rgba(99, 102, 241, 0.9);
+            }
+
+        .whiteboard-toolbar input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #FFFFFF;
+            border-radius: 50%;
+            background: #6366F1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px -2px rgba(99, 102, 241, 0.7);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+            .whiteboard-toolbar input[type="range"]::-moz-range-thumb:hover {
+                transform: scale(1.15);
+                box-shadow: 0 4px 14px -2px rgba(99, 102, 241, 0.9);
+            }
+
+.whiteboard-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    cursor: crosshair;
+    touch-action: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 4px 20px -8px rgba(99, 102, 241, 0.25);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .whiteboard-canvas:hover {
+        border-color: #C7D2FE;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 8px 28px -8px rgba(99, 102, 241, 0.4);
+    }
+
+.whiteboard-container > p:last-of-type {
+    margin: 22px 0 0;
+    padding: 12px 18px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #6366F1;
+    background: #EEF2FF;
+    border: 1px dashed #C7D2FE;
+    border-radius: 12px;
+    line-height: 1.7;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .whiteboard-container {
+        padding: 26px 20px 22px;
+        border-radius: 20px;
+    }
+
+        .whiteboard-container h1 {
+            font-size: 1.6rem;
+        }
+
+    .whiteboard-toolbar {
+        padding: 14px 16px;
+        gap: 10px;
+    }
+
+        .whiteboard-toolbar input[type="range"] {
+            min-width: 120px;
+        }
+
+    main {
+        padding: 32px 14px;
+    }
+}
