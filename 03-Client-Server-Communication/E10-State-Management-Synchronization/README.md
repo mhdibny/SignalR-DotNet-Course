@@ -2,5 +2,9 @@
 
 
 
+
+
+
+
 !\[Data Storage Patterns](./images/data-storage-patterns.png)
 
