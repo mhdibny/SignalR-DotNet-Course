@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — آزمون SignalR</title>
+    <link rel="stylesheet" href="~/css/quiz.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="aurora" aria-hidden="true">
+        <span class="aurora-blob blob-1"></span>
+        <span class="aurora-blob blob-2"></span>
+        <span class="aurora-blob blob-3"></span>
+    </div>
+
+    <main class="app-shell">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/microsoft/signalR/dist/browser/signalr.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

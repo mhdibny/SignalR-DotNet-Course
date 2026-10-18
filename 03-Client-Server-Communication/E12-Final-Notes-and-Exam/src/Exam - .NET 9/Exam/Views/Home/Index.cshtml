@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "آزمون";
+}
+
+<div class="screens">
+
+    <section id="screen-connect" class="screen active">
+        <div class="glass-card">
+            <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h.01" />
+                    <path d="M7 20v-4" />
+                    <path d="M12 20v-8" />
+                    <path d="M17 20V8" />
+                    <path d="M22 4v16" />
+                </svg>
+            </div>
+            <h1 class="title">آزمون SignalR</h1>
+            <p class="subtitle">آماده‌ای دانش خودت رو بسنجی؟</p>
+            <div class="meta-row" aria-hidden="true">
+                <span class="meta-chip">32 سوال</span>
+                <span class="meta-chip">4 گزینه‌ای</span>
+                <span class="meta-chip">بدون محدودیت زمان</span>
+            </div>
+            <button id="btn-connect" type="button" class="btn-primary btn-lg">اتصال به سرور</button>
+        </div>
+    </section>
+
+    <section id="screen-connecting" class="screen">
+        <div class="glass-card">
+            <div class="connect-visual" aria-hidden="true">
+                <span class="pulse-ring"></span>
+                <span class="pulse-ring"></span>
+                <span class="pulse-ring"></span>
+                <span class="pulse-core">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 20h.01" />
+                        <path d="M7 20v-4" />
+                        <path d="M12 20v-8" />
+                        <path d="M17 20V8" />
+                        <path d="M22 4v16" />
+                    </svg>
+                </span>
+            </div>
+            <h2 class="title-sm">در حال اتصال به SignalR...</h2>
+            <p class="subtitle">چند لحظه صبر کن</p>
+        </div>
+    </section>
+
+    <section id="screen-ready" class="screen">
+        <div class="glass-card">
+            <div class="success-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12l5 5L20 7" />
+                </svg>
+            </div>
+            <h2 class="title-sm">اتصال برقرار شد</h2>
+            <p class="subtitle">به SignalR متصل شدیم. آماده‌ای شروع کنیم؟</p>
+            <button id="btn-start" type="button" class="btn-primary btn-lg">شروع آزمون</button>
+        </div>
+    </section>
+
+    <section id="screen-quiz" class="screen">
+        <div class="glass-card quiz-card">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span class="progress-label">سوال</span>
+                    <span class="progress-current" id="q-current">1</span>
+                    <span class="progress-sep">از</span>
+                    <span class="progress-total" id="q-total">33</span>
+                </div>
+                <div class="score-chip" id="score-chip">
+                    نمره: <span id="score-value">0</span>
+                </div>
+            </div>
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <h3 class="question-text" id="question-text">در حال بارگذاری...</h3>
+            <div class="options" id="options"></div>
+            <div class="quiz-actions">
+                <button id="btn-next" type="button" class="btn-primary btn-lg" disabled>سوال بعدی</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="screen-final" class="screen">
+        <div class="glass-card final-card">
+            <div class="success-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12l5 5L20 7" />
+                </svg>
+            </div>
+            <h2 class="title-sm">آزمون تموم شد!</h2>
+            <p class="subtitle">ممنون که وقت گذاشتی و تلاش کردی 🌟</p>
+            <div class="score-display">
+                <span class="score-value" id="final-score">0</span>
+                <span class="score-total">از <span id="final-total">33</span></span>
+            </div>
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-label">پاسخ صحیح</span>
+                    <span class="breakdown-value" id="correct-count">0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">پاسخ غلط</span>
+                    <span class="breakdown-value" id="wrong-count">0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">درصد موفقیت</span>
+                    <span class="breakdown-value" id="percentage">0%</span>
+                </div>
+            </div>
+            <button id="btn-restart" type="button" class="btn-primary btn-lg">آزمون مجدد</button>
+        </div>
+    </section>
+
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+@section Scripts {
+    <script src="~/js/ui.js" asp-append-version="true"></script>
+    <script src="~/js/quiz.js" asp-append-version="true"></script>
+}
