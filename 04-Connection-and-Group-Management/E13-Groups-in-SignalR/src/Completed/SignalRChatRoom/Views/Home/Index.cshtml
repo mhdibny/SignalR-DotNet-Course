@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "SignalR Chat Room";
+}
+
+<main class="chat-app">
+
+    <aside class="sidebar">
+
+        <header class="sidebar-brand">
+            <div class="brand-mark">S</div>
+            <div class="brand-text">
+                <h1>چت روم</h1>
+                <p>با SignalR</p>
+            </div>
+        </header>
+
+        <div class="sidebar-section">
+            <label for="room-select">اتاق‌ها</label>
+
+            <select id="room-select">
+                <option value="general">General</option>
+                <option value="dotnet">DotNet</option>
+                <option value="signalr">SignalR</option>
+            </select>
+
+            <div class="room-actions">
+                <button type="button" id="join-room-button" disabled>
+                    ورود
+                </button>
+                <button type="button" id="leave-room-button" disabled>
+                    خروج
+                </button>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <label for="username-input">نام کاربری</label>
+            <input type="text"
+                   id="username-input"
+                   form="message-form"
+                   placeholder="نام کاربری شما"
+                   maxlength="20"
+                   required />
+        </div>
+
+        <div class="current-room-card">
+            <span>اتاق فعلی</span>
+            <strong id="current-room">هیچ اتاقی انتخاب نشده</strong>
+        </div>
+
+        <footer class="sidebar-footer">
+            <span>وضعیت</span>
+            <span id="connection-status">در حال اتصال...</span>
+        </footer>
+
+    </aside>
+
+    <section class="chat-main">
+
+        <header class="chat-topbar">
+            <div>
+                <h2>گفتگو</h2>
+                <p>پیام‌های اتاق</p>
+            </div>
+        </header>
+
+        <ul id="messages-list" aria-live="polite"></ul>
+
+        <form id="message-form" autocomplete="off">
+
+            <input type="text"
+                   id="message-input"
+                   placeholder="متن پیام"
+                   maxlength="500"
+                   required />
+
+            <button type="submit" id="send-button" disabled>
+                ارسال
+            </button>
+
+        </form>
+
+        <p id="feedback" role="status" aria-live="polite"></p>
+
+    </section>
+
+</main>
+@section Scripts {
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script src="~/js/style.js"></script>
+}
