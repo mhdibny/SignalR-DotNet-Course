@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<main class="admin-shell">
+    @if (TempData["Success"] is string successMessage)
+    {
+        <div class="admin-toast admin-toast-success">@successMessage</div>
+    }
+
+    <header class="admin-header">
+        <div class="admin-brand">
+            <div class="admin-logo">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <div class="admin-brand-text">
+                <h1>پنل مدیریت</h1>
+                <p>SignalR Chat Rooms</p>
+            </div>
+        </div>
+        <span class="admin-badge">ADMIN</span>
+    </header>
+
+    <section class="admin-card">
+
+        <div class="admin-card-head">
+            <h2>ارسال اعلان همگانی</h2>
+            <p>این پیام برای تمام کاربران متصل به سایت نمایش داده می‌شود.</p>
+        </div>
+
+        <form asp-controller="Admin"
+              asp-action="SendAnnouncement"
+              method="post"
+              class="admin-form">
+
+            <div class="admin-field">
+                <label for="title">عنوان اعلان</label>
+                <input type="text"
+                       id="title"
+                       name="title"
+                       maxlength="100"
+                       placeholder="مثلاً: بروزرسانی سرویس"
+                       required />
+            </div>
+
+            <div class="admin-field">
+                <label for="message">متن پیام</label>
+                <textarea id="message"
+                          name="message"
+                          rows="5"
+                          maxlength="500"
+                          placeholder="متن اعلان را اینجا بنویسید..."
+                          required></textarea>
+            </div>
+
+            <button type="submit" class="admin-submit">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13" />
+                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                <span>ارسال اعلان</span>
+            </button>
+
+        </form>
+
+    </section>
+
+</main>
